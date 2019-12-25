@@ -50,12 +50,15 @@ public class PlatformerPlayer : MonoBehaviour {
 
 		_anim.SetFloat("speed", Mathf.Abs(deltaX));
 
-		Vector3 pScale = Vector3.one;
-		if (platform != null) {
-			pScale = platform.transform.localScale;
-		}
-		if (!Mathf.Approximately(deltaX, 0)) {
-			transform.localScale = new Vector3(Mathf.Sign(deltaX) / pScale.x, 1/pScale.y, 1);
-		}
-	}
+        Vector3 pScale = Vector3.one;
+        if (platform != null)
+        {
+            pScale = platform.transform.localScale;
+        }
+
+        if (!Mathf.Approximately(deltaX, 0))
+        {
+            transform.localScale = new Vector3(0.05f / Mathf.Sign(deltaX) / pScale.x, 0.05f / pScale.y, 0.3f);
+        }
+    }
 }
